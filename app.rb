@@ -25,7 +25,7 @@ helpers do
   end
   def avg_length(text)
     words = text.split(' ')
-    words.join.length.to_f / words.length
+    (words.join.length.to_f / words.length).round(2)
   end
   def common_word(text)
     words = text.scan(/\w+/)
@@ -86,7 +86,7 @@ put "/posts/:id" do
   redirect "/posts/#{@post.id}"
 end
 
-# get analytics
+# get analytics per post
 get '/posts/:id/analytics' do
   @post = Post.find(params[:id])
   @title = "Stats and Stuff"

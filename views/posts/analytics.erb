@@ -4,12 +4,21 @@
 
 <div class="panel panel-info">
   <div class="panel-heading">
-    <h2 class="panel-title">Stats &amp; Stuff</h2>
+    <h2 class="panel-title">Stats &amp; Other Stuff</h2>
   </div>
   <div class="panel-body">
-    <p> Word Count: <%=h @post.body.scan(/\w+/).size %> </p>
-    <p> Average Word Length: <%=h avg_length(@post.body) %></p>
-    <p> Most Common Word(s): <%=h common_word(@post.body) %></p>
+    <p> 
+      <strong>Word Count:</strong> 
+      <%=h @post.body.scan(/\w+/).size %> 
+    </p>
+    <p> 
+      <strong>Average Word Length: </strong>
+      <%= avg_length(@post.body) %>
+    </p>
+    <p> 
+      <strong>Most Common Word(s): </strong>
+      <%= common_word(@post.body) %>
+    </p>
   </div>
 </div>
 
