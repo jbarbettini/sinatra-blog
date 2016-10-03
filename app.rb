@@ -23,9 +23,15 @@ helpers do
       "Welcome"
     end
   end
-  def avgLength(text)
+  def avg_length(text)
     words = text.split(' ')
     words.join.length.to_f / words.length
+  end
+  def common_word(text)
+    words = text.scan(/\w+/)
+    counts = words.each_with_object(Hash.new(0)) {|word, counts| counts[word.downcase] += 1 }
+    max_quantity = counts.values.max
+    counts.select { |k, v| v == max_quantity }.keys
   end
 end
 
