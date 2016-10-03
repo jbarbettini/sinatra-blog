@@ -20,7 +20,7 @@ helpers do
     if @title
       "#{@title}"
     else
-      "Welcome."
+      "Welcome"
     end
   end
 end
@@ -33,9 +33,10 @@ end
 # get ALL posts
 get "/" do
   @posts = Post.order("created_at DESC")
-  @title = "Welcome."
+  @title = "Welcome"
   erb :"posts/index"
 end
+
 
 # create new post
 get "/posts/create" do
@@ -52,6 +53,7 @@ post "/posts" do
     redirect "posts/create", :error => 'Something went wrong. Try again. (This message will disappear in 4 seconds.)'
   end
 end
+
 
 # view post
 get "/posts/:id" do
@@ -71,3 +73,12 @@ put "/posts/:id" do
   @post.update(params[:post])
   redirect "/posts/#{@post.id}"
 end
+
+# get analytics
+get '/posts/:id/analytics' do
+  @post = Post.find(params[:id])
+  @title = "Stats and Stuff"
+  erb :"posts/analytics"
+end
+
+

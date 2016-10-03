@@ -1,1 +1,14 @@
-<h2>Hello World</h2>
+<h1><%=h @post.title %></h1>
+<p><%=h @post.body %></p>
+<br>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h2 class="panel-title">Stats and Stuff</h2>
+  </div>
+  <div class="panel-body">
+    Panel Content
+  </div>
+</div>
+
+<a href="/posts/<%= @post.id %>">Back to Post</a>
