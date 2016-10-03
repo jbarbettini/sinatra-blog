@@ -23,12 +23,18 @@ helpers do
       "Welcome"
     end
   end
+  def avgLength(text)
+    words = text.split(' ')
+    words.join.length.to_f / words.length
+  end
 end
+
 
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
 end
+
 
 # get ALL posts
 get "/" do
