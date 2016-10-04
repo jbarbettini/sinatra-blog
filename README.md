@@ -4,7 +4,7 @@ This is just a simple blog with some analytics, which uses Sinatra + PostgreSQL 
 
 ## How to start this application
 
-    $ git clone https://github.com/mjhea0/sinatra-blog
+    $ git clone https://github.com/jbarbettini/sinatra-blog
     $ cd sinatra-blog
     $ bundle install
     $ ruby app.rb                 

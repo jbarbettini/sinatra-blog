@@ -7,7 +7,6 @@ require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
 require 'sinatra/captcha'
 require 'chartkick'
-require 'console.log'
 
 enable :sessions
 
@@ -32,7 +31,6 @@ helpers do
   def common_word(text)
     words = text.scan(/\w+/)
     counts = words.each_with_object(Hash.new(0)) {|word, counts| counts[word.downcase] += 1 }
-    console.log counts
     max_quantity = counts.values.max
     (counts.select { |k, v| v == max_quantity }.keys).join(', ')
   end
@@ -40,7 +38,6 @@ helpers do
     words = text.scan(/\w+/)
     counts = words.each_with_object(Hash.new(0)) {|word, counts| counts[word.downcase] += 1 }
     sorted_counts = counts.sort_by {|k,v| v}.reverse
-    console.log "sorted counts ------- ", Array(sorted_counts)
     Array(sorted_counts).take(5)
   end
 end
