@@ -6,6 +6,7 @@ require './environments'
 require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
 require 'sinatra/captcha'
+require 'chartkick'
 
 enable :sessions
 
@@ -31,7 +32,7 @@ helpers do
     words = text.scan(/\w+/)
     counts = words.each_with_object(Hash.new(0)) {|word, counts| counts[word.downcase] += 1 }
     max_quantity = counts.values.max
-    counts.select { |k, v| v == max_quantity }.keys
+    (counts.select { |k, v| v == max_quantity }.keys).join(', ')
   end
 end
 
@@ -92,5 +93,4 @@ get '/posts/:id/analytics' do
   @title = "Stats and Stuff"
   erb :"posts/analytics"
 end
-
 
