@@ -19,7 +19,8 @@
       <strong>Most Common Word(s): </strong>
       <%= common_word(@post.body) %>
     </p>
-    
+    <strong> Frequency of Top 5 Words: </strong>
+    <%= pie_chart word_frequency(@post.body) %>
   </div>
 </div>
 

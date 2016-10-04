@@ -14,6 +14,7 @@ gem "chartkick"
 group :development do
   gem 'sqlite3'
   gem "tux"
+  gem "console.log"
 end
  
 group :production do
